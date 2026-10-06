@@ -2,6 +2,16 @@
 #include <string.h>
 #include <errno.h>
 
+//Definition of pin to control the bts7968 [PWM_F - forward, PWM_R - revers]
+const uint8_t EN_R[] = {2, 7}, EN_L[] = {4, 8};
+const uint8_t PWM_F[] = {6, 9}, PWM_R[] = {5, 10};
+uint8_t PWM_Limit = 100;
+uint8_t RAMO_MS = 10;
+
+//Current sensors pins
+const uint8_t Current_Sensors[] = {A6, A7};
+
+//Data for parsing the communication frames
 char receivedFrame[64];
 uint8_t receivedLength = 0;
 bool discardFrame = false;
